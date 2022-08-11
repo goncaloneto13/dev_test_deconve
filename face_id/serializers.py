@@ -4,7 +4,7 @@ from .models import Video,Face
 class VideoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Video
-        fields = ('url')
+        fields = '__all__'
 
 class FaceSerializer(serializers.ModelSerializer):
     class Meta:
