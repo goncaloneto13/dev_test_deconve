@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from face_id.views import VideoViewSet,Home
+from face_id.views import VideoViewSet,Home,FaceViewSet
 from rest_framework import routers
 
 
 router = routers.DefaultRouter()
 router.register(r'videos',VideoViewSet)
-#router.register(r'camera', Home, name='app1fun')
+router.register(r'faces',FaceViewSet)
+
 
 
 urlpatterns = [

@@ -5,8 +5,8 @@ from django.http import HttpResponse
 from .models import *
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Video
-from .serializers import VideoSerializer
+from .models import Video,Face
+from .serializers import VideoSerializer,FaceSerializer
 import cv2
 import threading
 from django.views.decorators import gzip
@@ -16,6 +16,10 @@ import mediapipe as mp
 class VideoViewSet(viewsets.ModelViewSet):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
+
+class FaceViewSet(viewsets.ModelViewSet):
+    queryset = Face.objects.all()
+    serializer_class = FaceSerializer    
 
 @gzip.gzip_page
 def Home(request):
